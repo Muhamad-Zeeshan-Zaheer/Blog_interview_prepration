@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> <%= @article.new_record? ?  "New Article" : "Edit Article"%> </h5>
+    <%= form_with model: @article do |form| %>
+      <% @article.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+      <div class="mb-3">
+        <%= form.label :title %><br>
+        <%= form.text_field :title, class:"form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :body %> <br>
+        <%= form.text_area :body, class:"form-control" %>
+      </div>
+
+      <div class= "text-end mt-3">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+  <% end %>
+  </div>
+</div>
